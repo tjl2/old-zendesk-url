@@ -1,0 +1,26 @@
+#! /usr/bin/env ruby
+
+class OldZendeskURLMaker
+  OLD_ZD_BASE_URL = "https://support.cloud.engineyard.com/tickets/"
+
+  def initialize(url_or_ticket_number)
+    @url_or_ticket_number = url_or_ticket_number
+  end
+
+  def create_old_url
+    @url_or_ticket_number =~ /^[\d]+$/ ? old_url_from_ticket_number : old_url_from_new_url
+  end
+
+  def old_url_from_ticket_number
+    OLD_ZD_BASE_URL + @url_or_ticket_number
+  end
+
+  def old_url_from_new_url
+    ticket_number = @url_or_ticket_number.split('/').last
+    OLD_ZD_BASE_URL + ticket_number
+  end
+end
+
+ticket_data = ARGV[0]
+ozum = OldZendeskURLMaker.new(ticket_data)
+puts ozum.create_old_url
