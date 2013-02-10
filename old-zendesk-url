@@ -21,6 +21,11 @@ class OldZendeskURLMaker
   end
 end
 
+unless ARGV.count >= 1
+  puts "Requires ticket number or new ZD URL"
+  exit
+end
+
 ticket_data = ARGV[0]
 ozum = OldZendeskURLMaker.new(ticket_data)
 puts ozum.create_old_url
