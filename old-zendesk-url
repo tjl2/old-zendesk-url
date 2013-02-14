@@ -28,4 +28,4 @@ end
 
 ticket_data = ARGV[0]
 ozum = OldZendeskURLMaker.new(ticket_data)
-puts ozum.create_old_url
+print ozum.create_old_url
