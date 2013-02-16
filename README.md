@@ -6,6 +6,7 @@ It's designed to be used with TextExpander as a shell script snippet.
 ## Installation
 * Copy old-zendesk-url to /usr/local/bin
 * Make a Shell Script TextExpander snippet with these contents:
+
 ```
     #! /bin/bash
     /usr/local/bin/old-zendesk-url %clipboard
